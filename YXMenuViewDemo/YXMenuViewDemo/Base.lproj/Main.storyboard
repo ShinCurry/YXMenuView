@@ -38,8 +38,11 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="8K8-Fj-2G2"/>
+                                    <constraint firstAttribute="height" constant="44" identifier="height" id="8K8-Fj-2G2"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="superView" destination="8bC-Xf-vdC" id="Xcu-hr-nX9"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BF2-QE-Vny">
                                 <rect key="frame" x="164" y="268" width="46" height="30"/>

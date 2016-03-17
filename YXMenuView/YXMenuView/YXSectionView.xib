@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YXSectionView" customModule="YXMenuView">
+            <connections>
+                <outlet property="button" destination="M3R-ir-SZQ" id="zm0-de-3oj"/>
+                <outlet property="horizonSeparator" destination="TMT-Qp-hfz" id="RBc-C6-8hQ"/>
+                <outlet property="image" destination="CwB-Go-cmY" id="NA3-uK-Psa"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="102" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3R-ir-SZQ">
+                    <rect key="frame" x="0.0" y="0.0" width="102" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="17" maxY="0.0"/>
+                    <state key="normal" title="Button">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triangle" translatesAutoresizingMaskIntoConstraints="NO" id="CwB-Go-cmY">
+                    <rect key="frame" x="84" y="20" width="8" height="8"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="CwB-Go-cmY" secondAttribute="height" multiplier="1:1" id="rtY-A5-Odt"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9I-Qb-5pZ">
+                    <rect key="frame" x="101" y="6" width="1" height="33"/>
+                    <color key="backgroundColor" white="0.74124370805369133" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="SCu-LB-bwA"/>
+                        <constraint firstAttribute="height" constant="36" id="aIO-rJ-Jkp"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="aIO-rJ-Jkp"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMT-Qp-hfz">
+                    <rect key="frame" x="0.0" y="43" width="102" height="1"/>
+                    <color key="backgroundColor" red="0.87859249114990234" green="0.87856626510620117" blue="0.87858116626739502" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="Hfn-d2-D8V"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="CwB-Go-cmY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" multiplier="1.05" id="9Rc-7x-mMv"/>
+                <constraint firstItem="M3R-ir-SZQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9vi-12-0qa"/>
+                <constraint firstAttribute="trailing" secondItem="e9I-Qb-5pZ" secondAttribute="trailing" id="EpS-TO-pVS"/>
+                <constraint firstAttribute="trailing" secondItem="CwB-Go-cmY" secondAttribute="trailing" constant="10" id="MOY-be-dqq"/>
+                <constraint firstAttribute="trailing" secondItem="M3R-ir-SZQ" secondAttribute="trailing" id="Na8-5x-XJz"/>
+                <constraint firstAttribute="trailing" secondItem="TMT-Qp-hfz" secondAttribute="trailing" id="Ngy-XK-pdk"/>
+                <constraint firstItem="e9I-Qb-5pZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PvD-tH-qnf"/>
+                <constraint firstAttribute="bottom" secondItem="M3R-ir-SZQ" secondAttribute="bottom" id="V3o-G2-2Bj"/>
+                <constraint firstItem="TMT-Qp-hfz" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WWr-7L-mhf"/>
+                <constraint firstAttribute="bottom" secondItem="TMT-Qp-hfz" secondAttribute="bottom" id="eJc-9T-ktZ"/>
+                <constraint firstItem="e9I-Qb-5pZ" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.75" id="fWP-7R-XNh"/>
+                <constraint firstItem="CwB-Go-cmY" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.2" id="pfk-dL-Nxo"/>
+                <constraint firstItem="M3R-ir-SZQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uBo-fh-mdZ"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="156" y="296"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Triangle" width="20" height="20"/>
+    </resources>
+</document>

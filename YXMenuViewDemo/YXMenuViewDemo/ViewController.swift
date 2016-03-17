@@ -13,10 +13,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuView.delegate = self
-        menuView.datasource = self
+//        menuView.delegate = self
+//        menuView.dataSource = self
         menuView.tintColor = UIColor.redColor()
-        print("menuView.hash \(menuView.hashValue)")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
