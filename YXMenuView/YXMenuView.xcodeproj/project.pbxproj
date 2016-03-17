@@ -58,11 +58,11 @@
 		88FCE8BC1C991844003D1CC1 /* YXMenuView */ = {
 			isa = PBXGroup;
 			children = (
+				88FCE9291C991913003D1CC1 /* YXMenuViewProtocol.swift */,
+				88FCE92A1C991913003D1CC1 /* YXMenuViewSelection.swift */,
 				88FCE9261C991913003D1CC1 /* YXSectionView.xib */,
 				88FCE9251C991913003D1CC1 /* YXSectionView.swift */,
 				88FCE9271C991913003D1CC1 /* YXMenuView.swift */,
-				88FCE9291C991913003D1CC1 /* YXMenuViewProtocol.swift */,
-				88FCE92A1C991913003D1CC1 /* YXMenuViewSelection.swift */,
 				88FCE8BD1C991844003D1CC1 /* YXMenuView.h */,
 				88FCE8BF1C991844003D1CC1 /* Info.plist */,
 				88FCE9311C991952003D1CC1 /* Image.xcassets */,

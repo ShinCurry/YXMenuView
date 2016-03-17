@@ -13,9 +13,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        menuView.delegate = self
-//        menuView.dataSource = self
-        menuView.tintColor = UIColor.redColor()
+        menuView.delegate = self
+        menuView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -27,11 +26,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var menuView: YXMenuView!
     
     
-    var titleForSections = ["区域", "时间", "类型"]
+    var titleForSections = ["Location", "Time", "Company"]
     var titleForRows = [
-        ["重庆", "北京", "上海"],
-        ["上午", "中午", "下午", "晚上"],
-        ["派送", "调研", "家教", "导游", "打酱油"]]
+        ["Chongqing", "San Francisco", "Beijing", "Los Angeles", "Hongkong"],
+        ["Morning", "Afternoon", "Night"],
+        ["Apple", "Google", "Microsoft", "Yahoo", "IBM", "Dell"]]
 }
 
 extension ViewController: YXMenuViewDelegate, YXMenuViewDataSource {

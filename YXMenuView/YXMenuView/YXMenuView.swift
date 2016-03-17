@@ -1,6 +1,6 @@
 //
 //  YXMenuView.swift
-//  Partime
+//  YXMenuView
 //
 //  Created by ShinCurry on 16/3/14.
 //  Copyright © 2016年 ShinCurry. All rights reserved.
@@ -8,6 +8,9 @@
 
 import UIKit
 
+let defaultTag = 3000
+
+@IBDesignable
 public class YXMenuView: UIView {
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,29 +21,32 @@ public class YXMenuView: UIView {
         super.init(coder: aDecoder)
         initBaseView()
     }
-    
-    public override func awakeFromNib() {
-        bodyView.delegate = self
-        bodyView.dataSource = self
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
 
+    override public func didMoveToSuperview() {
+        if let view = superview {
+            shadowView = UIView(frame: view.frame)
+            shadowView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "unselectSection:"))
+            view.addSubview(shadowView!)
+            view.bringSubviewToFront(self)
+            shadowView!.hidden = true
+        }
     }
     
+    
     var selections: YXMenuViewSelection!
-    let defaultTag = 3000
+    
     
     
     //MARK: - Default Data
-    var titleForSections = ["Stark", "Sakura", "Hoppou"]
+    var titleForSections = ["Fruit", "小说", "動漫"]
     var titleForRowsInSection = [
-    ["Apple", "Banana", "Blueberry"],
-    ["Cherry", "Grape", "Lemon"],
-    ["Mango", "Peach", "Pear"]]
+    ["Apple", "Banana", "Blueberry", "Cherry", "Grape", "Lemon", "Mango", "Peach", "Pear"],
+    ["来自新世界", "白夜行", "失乐园", "三体", "大秦帝国", "龙族", "古典部系列"],
+    ["冰菓", "银魂", "とらドラ!", "やはり俺の青春ラブコメはまちがっている。", "言の叶の庭", "新世界より"]]
     
     
     //MARK: - Properties
-    override public var tintColor: UIColor! {
+    @IBInspectable override public var tintColor: UIColor! {
         didSet {
             let sectionViews = headerView.subviews as! [YXSectionView]
             sectionViews.forEach() { sectionView in
@@ -48,39 +54,36 @@ public class YXMenuView: UIView {
             }
         }
     }
-    
-    @IBOutlet public var delegate: YXMenuViewDelegate? {
+
+    public var delegate: YXMenuViewDelegate? {
         didSet {
             
         }
     }
-    @IBOutlet public var dataSource: YXMenuViewDataSource? {
+    public var dataSource: YXMenuViewDataSource? {
         didSet {
             updateHeaderView()
         }
     }
     
 
-    
 
     var expansionHeight: CGFloat!
     var collapseHeight: CGFloat!
     var maxTableViewHeight: CGFloat!
     
-    @IBOutlet var superView: UIView?
+    
     var headerView: UIView!
-//    var sectionViews: [YXSectionView]!
     var bodyView: UITableView!
-
+    var shadowView: UIView?
 }
 
 // MARK: - View
 extension YXMenuView {
     func initBaseView() {
-        maxTableViewHeight = 44 * 3
+        maxTableViewHeight = 44 * 4
         collapseHeight = frame.size.height
         expansionHeight = collapseHeight + maxTableViewHeight
-
         
         headerView = UIView(frame: CGRectMake(0, 0, frame.size.width, frame.size.height))
         initHeaderView(titleForSections.count)
@@ -90,12 +93,16 @@ extension YXMenuView {
         
         addSubview(headerView)
         addSubview(bodyView)
-
+        
+        bodyView.delegate = self
+        bodyView.dataSource = self
+        
         
     }
     
     
     func initHeaderView(sectionNumber: Int) {
+        headerView.subviews.forEach() { $0.removeFromSuperview() }
         selections = YXMenuViewSelection(numberOfSelection: sectionNumber)
         // +1 去除最后一个 sectionView 的分割线
         let fullWidth = frame.size.width + 1
@@ -118,14 +125,6 @@ extension YXMenuView {
         
         reloadHeaderData()
     }
-    
-    // load view from xib
-    func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(identifier: "com.windisco.YXMenuView")!
-        let nib = UINib(nibName: "YXMenuView", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        return view
-    }
 }
 
 // MARK: - View Reaction and Animation
@@ -133,7 +132,14 @@ extension YXMenuView {
     func selectSection(sender: UIButton) {
         let sectionIndex = sender.tag - defaultTag
         let status = selections.selectionAt(sectionIndex)
+        selectAction(status)
+    }
+    func unselectSection(sender: UITapGestureRecognizer) {
+        selections.reset()
+        selectAction(.SelectSelf)
         
+    }
+    func selectAction(status: YXMenuSelectionStatus) {
         let sectionViews = headerView.subviews as! [YXSectionView]
         EnumerateSequence(sectionViews).forEach() { (index, sectionView) in
             sectionView.highlighted = selections.currentStatus[index]
@@ -142,21 +148,13 @@ extension YXMenuView {
         switch status {
         case .SelectOne:
             print("SelectOne")
+            showShadowView()
             bodyView.reloadData()
-            self.expandTableView() {
-                
-            }
-
-        
+            self.expandTableView({})
         case .SelectSelf:
+            hideShadowView()
             print("SelectSelf")
-            self.collapseTableView() {
-                self.collapseBackground()
-            }
-
-            
-
-            
+            self.collapseTableView({})
         case .SelectOther:
             print("SelectOther")
             collapseTableView() {
@@ -164,7 +162,6 @@ extension YXMenuView {
                 self.expandTableView({})
             }
         default:
-            print("default")
             break
         }
     }
@@ -174,38 +171,33 @@ extension YXMenuView {
             self.bodyView.alpha = 0.2
             self.bodyView.frame.size.height = 0
             }, completion: { _ in
+                self.frame.size.height = self.collapseHeight
                 completion()
         })
     }
     func expandTableView(completion: () -> Void) {
-        UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseInOut, animations: {
+        UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseInOut, animations: {
             self.bodyView.alpha = 1
             self.bodyView.frame.size.height = self.maxTableViewHeight
-
             }, completion: { _ in
-                self.expandBackground()
+                self.frame.size.height = self.expansionHeight
                 completion()
         })
         
     }
-    
-    func collapseBackground() {
-        UIView.animateWithDuration(0.15) {
-            self.frame.size.height = self.collapseHeight
-        }
-
-    }
-    
-    func expandBackground() {
-        UIView.animateWithDuration(0.3) {
-            if let view = self.superView {
-                self.frame.size.height = view.frame.size.height
-            } else {
-                self.frame.size.height = self.expansionHeight
-            }
+    func showShadowView() {
+        shadowView?.hidden = false
+        UIView.animateWithDuration(0.25) {
+            self.shadowView?.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.7, alpha: 0.7)
         }
     }
-    
+    func hideShadowView() {
+        UIView.animateWithDuration(0.25, animations: {
+            self.shadowView?.backgroundColor = UIColor.whiteColor()
+            }) { _ in
+            self.shadowView?.hidden = true
+        }
+    }
 }
 
 // MARK: - Data

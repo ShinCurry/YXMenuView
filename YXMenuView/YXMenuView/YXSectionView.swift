@@ -1,6 +1,6 @@
 //
 //  YXSectionView.swift
-//  Partime
+//  YXMenuView
 //
 //  Created by ShinCurry on 16/3/14.
 //  Copyright © 2016年 ShinCurry. All rights reserved.
@@ -28,6 +28,7 @@ class YXSectionView: UIView {
     
     @IBOutlet weak var horizonSeparator: UIView!
     
+
     var highlighted = false {
         didSet {
             if highlighted {

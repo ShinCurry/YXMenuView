@@ -1,6 +1,6 @@
 //
 //  YXMenuViewProtocol.swift
-//  Partime
+//  YXMenuView
 //
 //  Created by ShinCurry on 16/3/14.
 //  Copyright © 2016年 ShinCurry. All rights reserved.
@@ -11,14 +11,6 @@ import UIKit
 //MARK: - YXMenuView Delegate
  @objc public protocol YXMenuViewDelegate {
     /**
-     get the super view of the menu view.
-     when the menu view expand table view, the super view will darken.
-     
-     - returns: super view of the menu view.
-     */
-    optional func superView() -> UIView
-    
-    /**
      Asks the delegate for the height of menu-view
      
      - parameter menuView: The menu-view object asking for the title.
@@ -26,7 +18,7 @@ import UIKit
      - returns: height value of menu-view
      */
     optional func heightForTableView(menuView: YXMenuView) -> CGFloat
-    
+    optional func numberOfVisibleCellsInYXMenuView(menuView: YXMenuView) -> Int
 }
 
 //MARK: - YXMenuView DataSource

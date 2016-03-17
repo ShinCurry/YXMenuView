@@ -1,6 +1,6 @@
 //
 //  ViewSelection.swift
-//  Partime
+//  YXMenuView
 //
 //  Created by ShinCurry on 16/3/15.
 //  Copyright © 2016年 ShinCurry. All rights reserved.
@@ -52,6 +52,10 @@ class YXMenuViewSelection {
         currentIndex = index
         currentStatus[index] = true
         return .SelectOther
-        
     }
+    
+    func reset() {
+        self.currentStatus = defaultStatus
+    }
+    
 }
