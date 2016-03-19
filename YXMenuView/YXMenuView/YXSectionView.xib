@@ -11,7 +11,7 @@
             <connections>
                 <outlet property="button" destination="M3R-ir-SZQ" id="zm0-de-3oj"/>
                 <outlet property="horizonSeparator" destination="TMT-Qp-hfz" id="RBc-C6-8hQ"/>
-                <outlet property="image" destination="CwB-Go-cmY" id="NA3-uK-Psa"/>
+                <outlet property="imageView" destination="CwB-Go-cmY" id="ynq-Gy-Heq"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

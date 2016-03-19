@@ -2,7 +2,9 @@
 
 MenuView for filtering data
 
-### Version 1.0
+![YXMenuViewDemo](http://windisco.qiniudn.com/YXMenuViewDemo.gif)
+
+### Version 1.1
 
 ## Requirements
 * Swift 2.1
@@ -48,16 +50,17 @@ menuView = YXMenuView(frame: CGRectMake(0, 60, view.frame.size.width, 44))
 * `func menuView(menuView: YXMenuView,  titleForHeaderInSection section: Int) -> String`
 * `func menuView(menuView: YXMenuView,  titleForRowAtIndexPath indexPath: NSIndexPath) -> String`
 
+
+
 ### optional
 
-...
-
+* `optional func menuView(menuView: YXMenuView, didSelectRowAtIndexPath indexPath: NSIndexPath)`
+* `optional func heightForTableView(menuView: YXMenuView) -> CGFloat`
+* `optional func imageForSectionView(menuView: YXMenuView) -> UIImage?`
 
 ## TODO
 
 * CocoaPods support
-* more custom features
-
 
 ## More Details
 

@@ -13,8 +13,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuView.delegate = self
         menuView.dataSource = self
+        menuView.delegate = self
+        menuView.imageType = .Custom
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,7 +26,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var menuView: YXMenuView!
     
-    
     var titleForSections = ["Location", "Time", "Company"]
     var titleForRows = [
         ["Chongqing", "San Francisco", "Beijing", "Los Angeles", "Hongkong"],
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         ["Apple", "Google", "Microsoft", "Yahoo", "IBM", "Dell"]]
 }
 
+// MARK: - YXMenuView Delegate and DataSource
 extension ViewController: YXMenuViewDelegate, YXMenuViewDataSource {
     func numberOfSectionsInYXMenuView(menuVIew: YXMenuView) -> Int {
         return titleForSections.count
@@ -48,5 +49,11 @@ extension ViewController: YXMenuViewDelegate, YXMenuViewDataSource {
     
     func menuView(menuView: YXMenuView, titleForRowAtIndexPath indexPath: NSIndexPath) -> String {
         return titleForRows[indexPath.section][indexPath.row]
+    }
+    func menuView(menuView: YXMenuView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // do something...
+    }
+    func imageForSectionView(menuView: YXMenuView) -> UIImage? {
+        return UIImage(named: "Test")
     }
 }

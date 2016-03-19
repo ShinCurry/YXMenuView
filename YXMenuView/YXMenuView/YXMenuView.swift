@@ -57,17 +57,15 @@ public class YXMenuView: UIView {
 
     public var delegate: YXMenuViewDelegate? {
         didSet {
-            
+            performDelegate()
         }
     }
     public var dataSource: YXMenuViewDataSource? {
         didSet {
-            updateHeaderView()
+            performDataSource()
         }
     }
     
-
-
     var expansionHeight: CGFloat!
     var collapseHeight: CGFloat!
     var maxTableViewHeight: CGFloat!
@@ -76,6 +74,30 @@ public class YXMenuView: UIView {
     var headerView: UIView!
     var bodyView: UITableView!
     var shadowView: UIView?
+    
+    
+
+    public var imageType: YXSectionViewImageType? {
+        didSet {
+            if let type = imageType {
+                let subviews = headerView.subviews as! [YXSectionView]
+                let image: UIImage?
+                switch type {
+                case .Triangle:
+                    image = UIImage(named: "Triangle", inBundle: NSBundle(identifier: "com.windisco.YXMenuView"), compatibleWithTraitCollection: nil)
+                case .Arrow:
+                    image = UIImage(named: "Arrow", inBundle: NSBundle(identifier: "com.windisco.YXMenuView"), compatibleWithTraitCollection: nil)
+                case .Custom:
+                    return
+                }
+                subviews.forEach({ sectionView in
+                    sectionView.imageView.image = image
+                })
+            }
+            
+            
+        }
+    }
 }
 
 // MARK: - View
@@ -97,9 +119,7 @@ extension YXMenuView {
         bodyView.delegate = self
         bodyView.dataSource = self
         
-        
     }
-    
     
     func initHeaderView(sectionNumber: Int) {
         headerView.subviews.forEach() { $0.removeFromSuperview() }
@@ -118,12 +138,24 @@ extension YXMenuView {
             headerView.addSubview(sectionView)
         }
     }
-    
-    func updateHeaderView() {
+
+    func performDataSource() {
         let numberOfSections = dataSource!.numberOfSectionsInYXMenuView(self)
         initHeaderView(numberOfSections)
-        
         reloadHeaderData()
+        if let imageForSectionView = dataSource!.imageForSectionView {
+            let subviews = headerView.subviews as! [YXSectionView]
+            subviews.forEach({ sectionView in
+                sectionView.imageView.image = imageForSectionView(self)
+            })
+        }
+    }
+    
+    func performDelegate() {
+        if let heightForBodyView = delegate!.heightForBodyView {
+            maxTableViewHeight = heightForBodyView(self)
+        }
+        
     }
 }
 
@@ -134,11 +166,12 @@ extension YXMenuView {
         let status = selections.selectionAt(sectionIndex)
         selectAction(status)
     }
+    
     func unselectSection(sender: UITapGestureRecognizer) {
         selections.reset()
         selectAction(.SelectSelf)
-        
     }
+    
     func selectAction(status: YXMenuSelectionStatus) {
         let sectionViews = headerView.subviews as! [YXSectionView]
         EnumerateSequence(sectionViews).forEach() { (index, sectionView) in
@@ -147,16 +180,13 @@ extension YXMenuView {
         
         switch status {
         case .SelectOne:
-            print("SelectOne")
             showShadowView()
             bodyView.reloadData()
             self.expandTableView({})
         case .SelectSelf:
             hideShadowView()
-            print("SelectSelf")
             self.collapseTableView({})
         case .SelectOther:
-            print("SelectOther")
             collapseTableView() {
                 self.bodyView.reloadData()
                 self.expandTableView({})
@@ -239,7 +269,6 @@ extension YXMenuView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    
     public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .Default, reuseIdentifier: "MenuCell")
 
@@ -249,5 +278,11 @@ extension YXMenuView: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel!.text = titleForRowsInSection[indexPath.section][indexPath.row]
         }
         return cell
+    }
+    
+    public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        delegate?.menuView?(self, didSelectRowAtIndexPath: indexPath)
+        selections.reset()
+        selectAction(.SelectSelf)
     }
 }

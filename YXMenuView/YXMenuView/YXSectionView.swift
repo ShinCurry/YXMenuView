@@ -6,9 +6,12 @@
 //  Copyright © 2016年 ShinCurry. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
+public enum YXSectionViewImageType {
+    case Triangle, Arrow
+    case Custom
+}
 
 class YXSectionView: UIView {
     override init(frame: CGRect) {
@@ -21,29 +24,26 @@ class YXSectionView: UIView {
         initSubView()
     }
     
-
     var view: UIView!
     @IBOutlet weak var button: UIButton!
-    @IBOutlet weak var image: UIImageView!
-    
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var horizonSeparator: UIView!
     
-
     var highlighted = false {
         didSet {
             if highlighted {
                 button.setTitleColor(tintColor, forState: .Normal)
-                image.tintColor = tintColor
+                imageView.tintColor = tintColor
                 horizonSeparator.backgroundColor = tintColor
                 UIView.animateWithDuration(0.4, animations: {
-                    self.image.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                    self.imageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
                 })
             } else {
                 button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-                image.tintColor = UIColor.lightGrayColor()
+                imageView.tintColor = UIColor.lightGrayColor()
                 horizonSeparator.backgroundColor = UIColor.lightGrayColor()
                 UIView.animateWithDuration(0.44, animations: {
-                    self.image.transform = CGAffineTransformMakeRotation(0)
+                    self.imageView.transform = CGAffineTransformMakeRotation(0)
                 })
             }
         }

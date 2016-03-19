@@ -2,13 +2,15 @@
 
 筛选菜单视图
 
-### 版本 1.0
+![YXMenuViewDemo](http://windisco.qiniudn.com/YXMenuViewDemo.gif)
+
+### 版本 1.1
 
 ## 编译环境
 * Swift 2.1
-* Xcode 6 or higher
+* Xcode 6 或者更高
 * Apple LLVM compiler
-* iOS 8.0 or higher (May work on previous versions, just did not testit. Feel free to edit it).
+* iOS 8.0 或者更高
 * ARC
 
 ## 示例
@@ -50,14 +52,14 @@ menuView = YXMenuView(frame: CGRectMake(0, 60, view.frame.size.width, 44))
 
 ### 可选
 
-...
+* `optional func menuView(menuView: YXMenuView, didSelectRowAtIndexPath indexPath: NSIndexPath)`
+* `optional func heightForTableView(menuView: YXMenuView) -> CGFloat`
+* `optional func imageForSectionView(menuView: YXMenuView) -> UIImage?`
 
 
 ## TODO
 
 * 支持 CocoaPods 安装
-* 更多的自定义特性
-
 
 ## 更多详情
 

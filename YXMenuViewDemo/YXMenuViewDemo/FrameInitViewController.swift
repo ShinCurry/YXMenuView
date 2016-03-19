@@ -8,6 +8,7 @@
 
 import UIKit
 import YXMenuView
+
 class FrameInitViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -16,6 +17,9 @@ class FrameInitViewController: UIViewController {
         let y = navigationController!.navigationBar.frame.origin.y + navigationController!.navigationBar.frame.size.height
         menuView = YXMenuView(frame: CGRectMake(0, y, view.frame.size.width, 44))
         view.addSubview(menuView)
+        
+        menuView.imageType = .Arrow
+        
         // Do any additional setup after loading the view.
     }
 
@@ -24,7 +28,7 @@ class FrameInitViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    var menuView: UIView!
+    var menuView: YXMenuView!
     /*
     // MARK: - Navigation
 

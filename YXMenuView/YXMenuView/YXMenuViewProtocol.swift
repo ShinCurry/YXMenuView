@@ -15,10 +15,17 @@ import UIKit
      
      - parameter menuView: The menu-view object asking for the title.
      
-     - returns: height value of menu-view
+     - returns: height of menu-view's body-view
      */
-    optional func heightForTableView(menuView: YXMenuView) -> CGFloat
-    optional func numberOfVisibleCellsInYXMenuView(menuView: YXMenuView) -> Int
+    optional func heightForBodyView(menuView: YXMenuView) -> CGFloat
+    
+    /**
+    Tells the delegate that the specified row is now selected.
+    
+    - parameter menuView:  The menu-view object asking for the title.
+    - parameter indexPath: indexPath of current selected row
+    */
+    optional func menuView(menuView: YXMenuView, didSelectRowAtIndexPath indexPath: NSIndexPath)
 }
 
 //MARK: - YXMenuView DataSource
@@ -31,7 +38,6 @@ import UIKit
      
      - returns: number of sections
      */
-    
     func numberOfSectionsInYXMenuView(menuView: YXMenuView) -> Int
     
     /**
@@ -65,12 +71,11 @@ import UIKit
     func menuView(menuView: YXMenuView,  titleForRowAtIndexPath indexPath: NSIndexPath) -> String
     
     /**
-     set custom view for header in section
-     
-     - parameter menuView: The menu-view object asking for the title.
-     - parameter section:      An index number identifying a section in menuView.
-     
-     - returns: custom view
-     */
-    optional func menuView(menuView: YXMenuView, viewForHeaderInSection section: Int) -> UIView?
+    Asks the delegate for custom image-view
+    
+    - parameter menuView: The menu-view object asking for the title.
+    
+    - returns: custom image-view
+    */
+    optional func imageForSectionView(menuView: YXMenuView) -> UIImage?
 }

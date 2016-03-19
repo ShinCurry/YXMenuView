@@ -31,7 +31,6 @@ class YXMenuViewSelection {
         currentIndex = 0
     }
     
-    
     func selectionAt(index: Int) -> YXMenuSelectionStatus {
         guard index >= 0 && index < numberOfSelection else {
             return .SelectNone
