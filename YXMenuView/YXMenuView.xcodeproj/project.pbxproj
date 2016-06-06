@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8820826A1CB3C4120043FC13 /* YXPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882082691CB3C4120043FC13 /* YXPickerView.xib */; };
+		8820826C1CB3C4E00043FC13 /* YXPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820826B1CB3C4E00043FC13 /* YXPickerView.swift */; };
+		882082701CB3EB740043FC13 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820826F1CB3EB740043FC13 /* Extension.swift */; };
+		882082721CB3FAC70043FC13 /* YXBodyViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882082711CB3FAC70043FC13 /* YXBodyViewType.swift */; };
 		88FCE8BE1C991844003D1CC1 /* YXMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FCE8BD1C991844003D1CC1 /* YXMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88FCE92B1C991913003D1CC1 /* YXSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCE9251C991913003D1CC1 /* YXSectionView.swift */; };
 		88FCE92C1C991913003D1CC1 /* YXSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCE9261C991913003D1CC1 /* YXSectionView.xib */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		882082691CB3C4120043FC13 /* YXPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YXPickerView.xib; sourceTree = "<group>"; };
+		8820826B1CB3C4E00043FC13 /* YXPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXPickerView.swift; sourceTree = "<group>"; };
+		8820826F1CB3EB740043FC13 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		882082711CB3FAC70043FC13 /* YXBodyViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXBodyViewType.swift; sourceTree = "<group>"; };
 		88FCE8BA1C991844003D1CC1 /* YXMenuView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YXMenuView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FCE8BD1C991844003D1CC1 /* YXMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXMenuView.h; sourceTree = "<group>"; };
 		88FCE8BF1C991844003D1CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,12 +66,16 @@
 		88FCE8BC1C991844003D1CC1 /* YXMenuView */ = {
 			isa = PBXGroup;
 			children = (
+				88FCE8BD1C991844003D1CC1 /* YXMenuView.h */,
+				882082711CB3FAC70043FC13 /* YXBodyViewType.swift */,
 				88FCE9291C991913003D1CC1 /* YXMenuViewProtocol.swift */,
 				88FCE92A1C991913003D1CC1 /* YXMenuViewSelection.swift */,
 				88FCE9261C991913003D1CC1 /* YXSectionView.xib */,
 				88FCE9251C991913003D1CC1 /* YXSectionView.swift */,
+				882082691CB3C4120043FC13 /* YXPickerView.xib */,
+				8820826B1CB3C4E00043FC13 /* YXPickerView.swift */,
 				88FCE9271C991913003D1CC1 /* YXMenuView.swift */,
-				88FCE8BD1C991844003D1CC1 /* YXMenuView.h */,
+				8820826F1CB3EB740043FC13 /* Extension.swift */,
 				88FCE8BF1C991844003D1CC1 /* Info.plist */,
 				88FCE9311C991952003D1CC1 /* Image.xcassets */,
 			);
@@ -139,6 +151,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8820826A1CB3C4120043FC13 /* YXPickerView.xib in Resources */,
 				88FCE92C1C991913003D1CC1 /* YXSectionView.xib in Resources */,
 				88FCE9321C991952003D1CC1 /* Image.xcassets in Resources */,
 			);
@@ -152,7 +165,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FCE9301C991913003D1CC1 /* YXMenuViewSelection.swift in Sources */,
+				8820826C1CB3C4E00043FC13 /* YXPickerView.swift in Sources */,
 				88FCE92B1C991913003D1CC1 /* YXSectionView.swift in Sources */,
+				882082721CB3FAC70043FC13 /* YXBodyViewType.swift in Sources */,
+				882082701CB3EB740043FC13 /* Extension.swift in Sources */,
 				88FCE92F1C991913003D1CC1 /* YXMenuViewProtocol.swift in Sources */,
 				88FCE92D1C991913003D1CC1 /* YXMenuView.swift in Sources */,
 			);

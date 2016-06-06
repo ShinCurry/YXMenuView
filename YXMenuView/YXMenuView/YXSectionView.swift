@@ -52,15 +52,8 @@ class YXSectionView: UIView {
 
 // MARK: - View
 extension YXSectionView {
-    func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(identifier: "com.windisco.YXMenuView")
-        let nib = UINib(nibName: "YXSectionView", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        return view
-    }
-    
     func initSubView() {
-        view = loadViewFromNib()
+        view = loadViewFromNib(named: "YXSectionView")
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         view.frame = bounds
         addSubview(view)

@@ -4,7 +4,7 @@
 
 ![YXMenuViewDemo](http://windisco.qiniudn.com/YXMenuViewDemo.gif)
 
-### 版本 1.1
+### 版本 1.2
 
 ## 编译环境
 * Swift 2.1
@@ -53,7 +53,7 @@ menuView = YXMenuView(frame: CGRectMake(0, 60, view.frame.size.width, 44))
 ### 可选
 
 * `optional func menuView(menuView: YXMenuView, didSelectRowAtIndexPath indexPath: NSIndexPath)`
-* `optional func heightForTableView(menuView: YXMenuView) -> CGFloat`
+* `optional func heightForBodyView(menuView: YXMenuView) -> CGFloat`
 * `optional func imageForSectionView(menuView: YXMenuView) -> UIImage?`
 
 

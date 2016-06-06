@@ -26,6 +26,16 @@ import UIKit
     - parameter indexPath: indexPath of current selected row
     */
     optional func menuView(menuView: YXMenuView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    
+    /**
+     Tells the delegate that the type of menu-view's section-view
+     
+     - parameter menuView: The menu-view object asking for the title.
+     - parameter section:  An index number identifying a section in menuView.
+     
+     - returns: type of menu-view's section-view
+     */
+    optional func menuView(menuView: YXMenuView, bodyViewTypeInSection section: Int) -> YXBodyViewType
 }
 
 //MARK: - YXMenuView DataSource
@@ -68,7 +78,7 @@ import UIKit
      
      - returns: title of row
      */
-    func menuView(menuView: YXMenuView,  titleForRowAtIndexPath indexPath: NSIndexPath) -> String
+//    func menuView(menuView: YXMenuView,  titleForRowAtIndexPath indexPath: NSIndexPath) -> String
     
     /**
     Asks the delegate for custom image-view
@@ -78,4 +88,11 @@ import UIKit
     - returns: custom image-view
     */
     optional func imageForSectionView(menuView: YXMenuView) -> UIImage?
+    
+    
+    // ----- NEW ----
+    
+    func menuView(menuView: YXMenuView,  typeForBodyViewInSection section: Int) -> YXBodyViewType
+    func menuView(menuView: YXMenuView,  dataForBodyViewIndexPath indexPath: NSIndexPath) -> AnyObject
+
 }

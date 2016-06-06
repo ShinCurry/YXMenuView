@@ -28,6 +28,7 @@ public class YXMenuView: UIView {
             shadowView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "unselectSection:"))
             view.addSubview(shadowView!)
             view.bringSubviewToFront(self)
+            shadowView!.alpha = 0.2
             shadowView!.hidden = true
         }
     }
@@ -125,7 +126,10 @@ extension YXMenuView {
         headerView.subviews.forEach() { $0.removeFromSuperview() }
         selections = YXMenuViewSelection(numberOfSelection: sectionNumber)
         // +1 去除最后一个 sectionView 的分割线
-        let fullWidth = frame.size.width + 1
+        var fullWidth = frame.size.width + 1
+        if let view = superview {
+            fullWidth = view.frame.size.width + 1
+        }
         let buttonWidth = fullWidth / CGFloat(sectionNumber)
         let buttonHeight = headerView.frame.size.height
         for index in 0..<sectionNumber {
@@ -155,7 +159,6 @@ extension YXMenuView {
         if let heightForBodyView = delegate!.heightForBodyView {
             maxTableViewHeight = heightForBodyView(self)
         }
-        
     }
 }
 
@@ -218,11 +221,13 @@ extension YXMenuView {
     func showShadowView() {
         shadowView?.hidden = false
         UIView.animateWithDuration(0.25) {
+            self.shadowView?.alpha = 1
             self.shadowView?.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.7, alpha: 0.7)
         }
     }
     func hideShadowView() {
         UIView.animateWithDuration(0.25, animations: {
+            self.shadowView?.alpha = 0
             self.shadowView?.backgroundColor = UIColor.whiteColor()
             }) { _ in
             self.shadowView?.hidden = true
@@ -284,5 +289,7 @@ extension YXMenuView: UITableViewDelegate, UITableViewDataSource {
         delegate?.menuView?(self, didSelectRowAtIndexPath: indexPath)
         selections.reset()
         selectAction(.SelectSelf)
+        let subviews = headerView.subviews as! [YXSectionView]
+        subviews[indexPath.section].button.setTitle(bodyView.cellForRowAtIndexPath(indexPath)!.textLabel!.text!, forState: .Normal)
     }
 }

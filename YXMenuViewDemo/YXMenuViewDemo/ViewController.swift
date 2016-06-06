@@ -26,7 +26,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var menuView: YXMenuView!
     
+    var sectionType: [YXBodyViewType] = [.Basic, .Basic, .Advanced]
     var titleForSections = ["Location", "Time", "Company"]
+    
+    var dataForBodyViewAtIndexPath = ()
+    
     var titleForRows = [
         ["Chongqing", "San Francisco", "Beijing", "Los Angeles", "Hongkong"],
         ["Morning", "Afternoon", "Night"],
@@ -55,5 +59,9 @@ extension ViewController: YXMenuViewDelegate, YXMenuViewDataSource {
     }
     func imageForSectionView(menuView: YXMenuView) -> UIImage? {
         return UIImage(named: "Test")
+    }
+    
+    func menuView(menuView: YXMenuView, bodyViewTypeInSection section: Int) -> YXBodyViewType {
+        return sectionType[section]
     }
 }
