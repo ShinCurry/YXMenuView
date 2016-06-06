@@ -25,13 +25,12 @@ public class YXMenuView: UIView {
     override public func didMoveToSuperview() {
         if let view = superview {
             shadowView = UIView(frame: view.frame)
-            shadowView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "unselectSection:"))
+            shadowView!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(YXMenuView.unselectSection)))
             view.addSubview(shadowView!)
             view.bringSubviewToFront(self)
             shadowView!.hidden = true
         }
     }
-    
     
     var selections: YXMenuViewSelection!
     
@@ -75,7 +74,7 @@ public class YXMenuView: UIView {
     var bodyView: UITableView!
     var shadowView: UIView?
     
-    
+    var headerSelectionTitle: [String] = []
 
     public var imageType: YXSectionViewImageType? {
         didSet {
@@ -125,13 +124,18 @@ extension YXMenuView {
         headerView.subviews.forEach() { $0.removeFromSuperview() }
         selections = YXMenuViewSelection(numberOfSelection: sectionNumber)
         // +1 去除最后一个 sectionView 的分割线
-        let fullWidth = frame.size.width + 1
+        var fullWidth = frame.size.width + 1
+        if let view = superview {
+            fullWidth = view.frame.size.width + 1
+        }
+        
         let buttonWidth = fullWidth / CGFloat(sectionNumber)
         let buttonHeight = headerView.frame.size.height
         for index in 0..<sectionNumber {
+            
             let sectionView = YXSectionView(frame: CGRectMake(CGFloat(index) * buttonWidth, 0, buttonWidth, buttonHeight))
             let button = sectionView.button
-            button.addTarget(self, action: "selectSection:", forControlEvents: .TouchUpInside)
+            button.addTarget(self, action: #selector(YXMenuView.selectSection(_:)), forControlEvents: .TouchUpInside)
             button.tag = defaultTag + index
             button.setTitle(titleForSections[index], forState: .Normal)
             sectionView.tintColor = tintColor
@@ -174,7 +178,7 @@ extension YXMenuView {
     
     func selectAction(status: YXMenuSelectionStatus) {
         let sectionViews = headerView.subviews as! [YXSectionView]
-        EnumerateSequence(sectionViews).forEach() { (index, sectionView) in
+        sectionViews.enumerate().forEach() { (index, sectionView) in
             sectionView.highlighted = selections.currentStatus[index]
         }
         
@@ -235,14 +239,16 @@ extension YXMenuView {
     private func reloadHeaderData() {
         if let data = dataSource {
             let sectionViews = headerView.subviews as! [YXSectionView]
-            EnumerateSequence(sectionViews).forEach() { (index, sectionView) in
+            sectionViews.enumerate().forEach() { (index, sectionView) in
                 sectionView.button.setTitle(data.menuView(self, titleForHeaderInSection: index), forState: .Normal)
             }
         }
     }
     
-    func reloadData() {
+    public func reloadHeader() {
         reloadHeaderData()
+    }
+    public func reloadBody() {
         bodyView.reloadData()
     }
 }
@@ -284,5 +290,7 @@ extension YXMenuView: UITableViewDelegate, UITableViewDataSource {
         delegate?.menuView?(self, didSelectRowAtIndexPath: indexPath)
         selections.reset()
         selectAction(.SelectSelf)
+        let subviews = headerView.subviews as! [YXSectionView]
+        subviews[indexPath.section].button.setTitle(bodyView.cellForRowAtIndexPath(indexPath)!.textLabel!.text!, forState: .Normal)
     }
 }
