@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8820826A1CB3C4120043FC13 /* YXPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882082691CB3C4120043FC13 /* YXPickerView.xib */; };
+		8820826C1CB3C4E00043FC13 /* YXPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820826B1CB3C4E00043FC13 /* YXPickerView.swift */; };
+		882082701CB3EB740043FC13 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8820826F1CB3EB740043FC13 /* Extension.swift */; };
+		882082721CB3FAC70043FC13 /* YXBodyViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882082711CB3FAC70043FC13 /* YXBodyViewType.swift */; };
 		88FCE8BE1C991844003D1CC1 /* YXMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 88FCE8BD1C991844003D1CC1 /* YXMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88FCE92B1C991913003D1CC1 /* YXSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCE9251C991913003D1CC1 /* YXSectionView.swift */; };
 		88FCE92C1C991913003D1CC1 /* YXSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88FCE9261C991913003D1CC1 /* YXSectionView.xib */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		882082691CB3C4120043FC13 /* YXPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YXPickerView.xib; sourceTree = "<group>"; };
+		8820826B1CB3C4E00043FC13 /* YXPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXPickerView.swift; sourceTree = "<group>"; };
+		8820826F1CB3EB740043FC13 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		882082711CB3FAC70043FC13 /* YXBodyViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YXBodyViewType.swift; sourceTree = "<group>"; };
 		88FCE8BA1C991844003D1CC1 /* YXMenuView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = YXMenuView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FCE8BD1C991844003D1CC1 /* YXMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YXMenuView.h; sourceTree = "<group>"; };
 		88FCE8BF1C991844003D1CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,12 +66,16 @@
 		88FCE8BC1C991844003D1CC1 /* YXMenuView */ = {
 			isa = PBXGroup;
 			children = (
+				88FCE8BD1C991844003D1CC1 /* YXMenuView.h */,
+				882082711CB3FAC70043FC13 /* YXBodyViewType.swift */,
 				88FCE9291C991913003D1CC1 /* YXMenuViewProtocol.swift */,
 				88FCE92A1C991913003D1CC1 /* YXMenuViewSelection.swift */,
 				88FCE9261C991913003D1CC1 /* YXSectionView.xib */,
 				88FCE9251C991913003D1CC1 /* YXSectionView.swift */,
+				882082691CB3C4120043FC13 /* YXPickerView.xib */,
+				8820826B1CB3C4E00043FC13 /* YXPickerView.swift */,
 				88FCE9271C991913003D1CC1 /* YXMenuView.swift */,
-				88FCE8BD1C991844003D1CC1 /* YXMenuView.h */,
+				8820826F1CB3EB740043FC13 /* Extension.swift */,
 				88FCE8BF1C991844003D1CC1 /* Info.plist */,
 				88FCE9311C991952003D1CC1 /* Image.xcassets */,
 			);
@@ -108,12 +120,13 @@
 		88FCE8B11C991844003D1CC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = ShinCurry;
 				TargetAttributes = {
 					88FCE8B91C991844003D1CC1 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 525R2U87NG;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -139,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8820826A1CB3C4120043FC13 /* YXPickerView.xib in Resources */,
 				88FCE92C1C991913003D1CC1 /* YXSectionView.xib in Resources */,
 				88FCE9321C991952003D1CC1 /* Image.xcassets in Resources */,
 			);
@@ -152,7 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				88FCE9301C991913003D1CC1 /* YXMenuViewSelection.swift in Sources */,
+				8820826C1CB3C4E00043FC13 /* YXPickerView.swift in Sources */,
 				88FCE92B1C991913003D1CC1 /* YXSectionView.swift in Sources */,
+				882082721CB3FAC70043FC13 /* YXBodyViewType.swift in Sources */,
+				882082701CB3EB740043FC13 /* Extension.swift in Sources */,
 				88FCE92F1C991913003D1CC1 /* YXMenuViewProtocol.swift in Sources */,
 				88FCE92D1C991913003D1CC1 /* YXMenuView.swift in Sources */,
 			);
@@ -174,8 +191,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -198,11 +217,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -222,8 +242,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -240,9 +262,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -254,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -266,6 +291,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -273,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -284,6 +311,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.windisco.YXMenuView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

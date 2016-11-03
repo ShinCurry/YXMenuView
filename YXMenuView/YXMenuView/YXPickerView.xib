@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="YXPickerView" customModule="YXMenuView" customModuleProvider="target">
+            <connections>
+                <outlet property="leftTableView" destination="g3O-4O-rT9" id="GK3-4A-5Sd"/>
+                <outlet property="rightTableView" destination="pLJ-Pe-SqI" id="0sL-6z-C9b"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="289"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pLJ-Pe-SqI">
+                    <rect key="frame" x="115" y="0.0" width="286" height="289"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="QQQ-xV-S1w"/>
+                        <outlet property="delegate" destination="-1" id="2aE-R4-f4M"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g3O-4O-rT9">
+                    <rect key="frame" x="0.0" y="0.0" width="115" height="289"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="o22-8O-so8"/>
+                        <outlet property="delegate" destination="-1" id="4pY-hC-qSh"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="g3O-4O-rT9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="68O-Xo-4L7"/>
+                <constraint firstAttribute="bottom" secondItem="g3O-4O-rT9" secondAttribute="bottom" id="Kgq-Mv-zNq"/>
+                <constraint firstItem="pLJ-Pe-SqI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SNP-bn-HvV"/>
+                <constraint firstItem="pLJ-Pe-SqI" firstAttribute="width" secondItem="g3O-4O-rT9" secondAttribute="width" multiplier="2.5" id="SUd-FK-lsl"/>
+                <constraint firstItem="pLJ-Pe-SqI" firstAttribute="leading" secondItem="g3O-4O-rT9" secondAttribute="trailing" id="YsH-Ev-Gxc"/>
+                <constraint firstItem="g3O-4O-rT9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZwJ-RN-Va1"/>
+                <constraint firstAttribute="trailing" secondItem="pLJ-Pe-SqI" secondAttribute="trailing" id="fn6-zt-M9R"/>
+                <constraint firstAttribute="bottom" secondItem="pLJ-Pe-SqI" secondAttribute="bottom" id="vtY-2n-bey"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="73.5" y="226.5"/>
+        </view>
+    </objects>
+</document>

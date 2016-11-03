@@ -9,8 +9,8 @@
 import UIKit
 
 public enum YXSectionViewImageType {
-    case Triangle, Arrow
-    case Custom
+    case triangle, arrow
+    case custom
 }
 
 class YXSectionView: UIView {
@@ -32,18 +32,18 @@ class YXSectionView: UIView {
     var highlighted = false {
         didSet {
             if highlighted {
-                button.setTitleColor(tintColor, forState: .Normal)
+                button.setTitleColor(tintColor, for: UIControlState())
                 imageView.tintColor = tintColor
                 horizonSeparator.backgroundColor = tintColor
-                UIView.animateWithDuration(0.4, animations: {
-                    self.imageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.imageView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI))
                 })
             } else {
-                button.setTitleColor(UIColor.blackColor(), forState: .Normal)
-                imageView.tintColor = UIColor.lightGrayColor()
-                horizonSeparator.backgroundColor = UIColor.lightGrayColor()
-                UIView.animateWithDuration(0.44, animations: {
-                    self.imageView.transform = CGAffineTransformMakeRotation(0)
+                button.setTitleColor(UIColor.black, for: UIControlState())
+                imageView.tintColor = UIColor.lightGray
+                horizonSeparator.backgroundColor = UIColor.lightGray
+                UIView.animate(withDuration: 0.44, animations: {
+                    self.imageView.transform = CGAffineTransform(rotationAngle: 0)
                 })
             }
         }
@@ -52,16 +52,9 @@ class YXSectionView: UIView {
 
 // MARK: - View
 extension YXSectionView {
-    func loadViewFromNib() -> UIView {
-        let bundle = NSBundle(identifier: "com.windisco.YXMenuView")
-        let nib = UINib(nibName: "YXSectionView", bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
-        return view
-    }
-    
     func initSubView() {
-        view = loadViewFromNib()
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view = loadViewFromNib(named: "YXSectionView")
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.frame = bounds
         addSubview(view)
     }

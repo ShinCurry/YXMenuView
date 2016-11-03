@@ -15,10 +15,10 @@ class FrameInitViewController: UIViewController {
         super.viewDidLoad()
         
         let y = navigationController!.navigationBar.frame.origin.y + navigationController!.navigationBar.frame.size.height
-        menuView = YXMenuView(frame: CGRectMake(0, y, view.frame.size.width, 44))
+        menuView = YXMenuView(frame: CGRect(x: 0, y: y, width: view.frame.size.width, height: 44))
         view.addSubview(menuView)
         
-        menuView.imageType = .Arrow
+        menuView.imageType = .arrow
         
         // Do any additional setup after loading the view.
     }
