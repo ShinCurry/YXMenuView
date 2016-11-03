@@ -9,15 +9,15 @@
 import Foundation
 
 enum YXMenuSelectionStatus {
-    case SelectSelf
-    case SelectOther
-    case SelectNone
-    case SelectOne
+    case selectSelf
+    case selectOther
+    case selectNone
+    case selectOne
 }
 
 class YXMenuViewSelection {
     var numberOfSelection: Int!
-    private let defaultStatus: [Bool]!
+    fileprivate let defaultStatus: [Bool]!
     var currentStatus: [Bool]!
     var currentIndex: Int!
     
@@ -31,26 +31,26 @@ class YXMenuViewSelection {
         currentIndex = 0
     }
     
-    func selectionAt(index: Int) -> YXMenuSelectionStatus {
+    func selectionAt(_ index: Int) -> YXMenuSelectionStatus {
         guard index >= 0 && index < numberOfSelection else {
-            return .SelectNone
+            return .selectNone
         }
         
         if currentStatus[index] {
             currentStatus[index] = false
-            return .SelectSelf
+            return .selectSelf
         }
         
         if currentStatus == defaultStatus {
             currentStatus[index] = true
             currentIndex = index
-            return .SelectOne
+            return .selectOne
         }
         
         currentStatus = defaultStatus
         currentIndex = index
         currentStatus[index] = true
-        return .SelectOther
+        return .selectOther
     }
     
     func reset() {

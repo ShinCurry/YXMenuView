@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8806AAD71C9A95D100F47131 /* FrameInitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8806AAD61C9A95D100F47131 /* FrameInitViewController.swift */; };
-		8806AAE01C9AF4A000F47131 /* YXMenuView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8806AADF1C9AF4A000F47131 /* YXMenuView.framework */; };
-		8806AAE11C9AF4A000F47131 /* YXMenuView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8806AADF1C9AF4A000F47131 /* YXMenuView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		88FCE9141C9918A2003D1CC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCE9131C9918A2003D1CC1 /* AppDelegate.swift */; };
 		88FCE9161C9918A2003D1CC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCE9151C9918A2003D1CC1 /* ViewController.swift */; };
 		88FCE9191C9918A2003D1CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88FCE9171C9918A2003D1CC1 /* Main.storyboard */; };
@@ -18,13 +16,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8806AAE21C9AF4A000F47131 /* Embed Frameworks */ = {
+		885821AA1DCB64E10027C552 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8806AAE11C9AF4A000F47131 /* YXMenuView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8806AAE01C9AF4A000F47131 /* YXMenuView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +92,7 @@
 				88FCE90C1C9918A2003D1CC1 /* Sources */,
 				88FCE90D1C9918A2003D1CC1 /* Frameworks */,
 				88FCE90E1C9918A2003D1CC1 /* Resources */,
-				8806AAE21C9AF4A000F47131 /* Embed Frameworks */,
+				885821AA1DCB64E10027C552 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +116,7 @@
 					88FCE90F1C9918A2003D1CC1 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 525R2U87NG;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -228,6 +225,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -265,6 +263,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -279,6 +278,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.windisco.YXMenuViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -291,6 +291,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.windisco.YXMenuViewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

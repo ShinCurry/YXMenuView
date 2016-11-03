@@ -46,7 +46,7 @@ class YXPickerView: UIView {
 //        }
 //    }
     
-    var indexPathForSelectedRow: NSIndexPath {
+    var indexPathForSelectedRow: IndexPath {
         get {
             var selectedSection = 0
             var selectedRow = 0
@@ -56,7 +56,7 @@ class YXPickerView: UIView {
             if let selectedIndex = rightTableView.indexPathForSelectedRow {
                 selectedRow = selectedIndex.row
             }
-            return NSIndexPath(forRow: selectedRow, inSection: selectedSection)
+            return IndexPath(row: selectedRow, section: selectedSection)
         }
     }
     
@@ -72,7 +72,7 @@ class YXPickerView: UIView {
 extension YXPickerView {
     func initSubView() {
         view = loadViewFromNib(named: "YXPickerView")
-        view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.frame = bounds
         addSubview(view)
     }
@@ -80,11 +80,11 @@ extension YXPickerView {
 
 
 extension YXPickerView: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let d = data else {
             return 0
         }
@@ -99,8 +99,8 @@ extension YXPickerView: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Default, reuseIdentifier: "PickerViewCell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "PickerViewCell")
         guard let d = data else {
             return cell
         }
@@ -117,8 +117,8 @@ extension YXPickerView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        guard let d = data else {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard data != nil else {
             return
         }
         

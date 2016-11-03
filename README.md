@@ -7,8 +7,8 @@ MenuView for filtering data
 ### Version 1.2
 
 ## Requirements
-* Swift 2.1
-* Xcode 6 or higher
+* Swift 3
+* Xcode 8 or higher
 * Apple LLVM compiler
 * iOS 8.0 or higher (May work on previous versions, just did not testit. Feel free to edit it).
 * ARC

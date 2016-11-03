@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         menuView.dataSource = self
         menuView.delegate = self
-        menuView.imageType = .Custom
+        menuView.imageType = .custom
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -26,10 +26,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var menuView: YXMenuView!
     
-    var sectionType: [YXBodyViewType] = [.Basic, .Basic, .Advanced]
+    var sectionType: [YXBodyViewType] = [.basic, .basic, .advanced]
     var titleForSections = ["Location", "Time", "Company"]
     
-    var dataForBodyViewAtIndexPath = ()
+//    var dataForBodyViewAtIndexPath = ()
     
     var titleForRows = [
         ["Chongqing", "San Francisco", "Beijing", "Los Angeles", "Hongkong"],
@@ -39,29 +39,29 @@ class ViewController: UIViewController {
 
 // MARK: - YXMenuView Delegate and DataSource
 extension ViewController: YXMenuViewDelegate, YXMenuViewDataSource {
-    func numberOfSectionsInYXMenuView(menuVIew: YXMenuView) -> Int {
+    func numberOfSectionsInYXMenuView(_ menuVIew: YXMenuView) -> Int {
         return titleForSections.count
     }
     
-    func menuView(menuView: YXMenuView, numberOfRowsInSection section: Int) -> Int {
+    func menuView(_ menuView: YXMenuView, numberOfRowsInSection section: Int) -> Int {
         return titleForRows[section].count
     }
     
-    func menuView(menuView: YXMenuView, titleForHeaderInSection section: Int) -> String {
+    func menuView(_ menuView: YXMenuView, titleForHeaderInSection section: Int) -> String {
         return titleForSections[section]
     }
     
-    func menuView(menuView: YXMenuView, titleForRowAtIndexPath indexPath: NSIndexPath) -> String {
+    func menuView(_ menuView: YXMenuView, titleForRowAtIndexPath indexPath: IndexPath) -> String {
         return titleForRows[indexPath.section][indexPath.row]
     }
-    func menuView(menuView: YXMenuView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func menuView(_ menuView: YXMenuView, didSelectRowAtIndexPath indexPath: IndexPath) {
         // do something...
     }
-    func imageForSectionView(menuView: YXMenuView) -> UIImage? {
+    func imageForSectionView(_ menuView: YXMenuView) -> UIImage? {
         return UIImage(named: "Test")
     }
     
-    func menuView(menuView: YXMenuView, bodyViewTypeInSection section: Int) -> YXBodyViewType {
+    func menuView(_ menuView: YXMenuView, typeForBodyViewInSection section: Int) -> YXBodyViewType {
         return sectionType[section]
     }
 }

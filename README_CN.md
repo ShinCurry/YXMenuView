@@ -7,8 +7,8 @@
 ### 版本 1.2
 
 ## 编译环境
-* Swift 2.1
-* Xcode 6 或者更高
+* Swift 3
+* Xcode 8 或者更高
 * Apple LLVM compiler
 * iOS 8.0 或者更高
 * ARC

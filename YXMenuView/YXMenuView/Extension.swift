@@ -10,9 +10,9 @@ import UIKit
 
 extension UIView {
     func loadViewFromNib(named name: String) -> UIView {
-        let bundle = NSBundle(identifier: "com.windisco.YXMenuView")
+        let bundle = Bundle(identifier: "com.windisco.YXMenuView")
         let nib = UINib(nibName: name, bundle: bundle)
-        let view = nib.instantiateWithOwner(self, options: nil)[0] as! UIView
+        let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         return view
     }
 }

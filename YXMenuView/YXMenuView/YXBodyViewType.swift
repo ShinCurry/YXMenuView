@@ -9,7 +9,7 @@
 import Foundation
 
 @objc public enum YXBodyViewType: Int {
-    case Basic = 0
-    case Advanced
-    case Custom
+    case basic = 0
+    case advanced
+    case custom
 }
